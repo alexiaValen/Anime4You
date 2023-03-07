@@ -4,24 +4,35 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <link href="./style.css">
     <title>Anime4You</title>
 </head>
 <body>
-  <nav class = "nav-bar"> 
-    
-      <button id = "home-btn">Home</button>
-      <button id = "all-char-btn">Anime Shows</button>
-      <button id= "top-ten">Top Ten Anime Shows</button>
-      <button id ="ten-random-btn">Anime Quotes</button>
-      <button id = "about-us-btn">About Us</button>
-    
-  
+
+  <style>
+    body{
+    background-image: url("./Images/anime-pic.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    }
+   </style>
+
+  <img src="./Images/logo.png">
+
+
+
+  <nav class = "nav-bar navbar-end navbar is-fixed-top" style="text-align: center;">  
+      <button class="button is-large" id = "home-btn">Home</button> 
+      <button class="button is-large" id = "all-char-btn">Anime Character</button>
+      <button class="button is-large" id = "all-anime-btn">Anime Shows</button>
+      <button class="button is-large" id ="ten-random-btn">Anime Quotes</button>
+      <button class="button is-large" id = "about-us-btn">About Us</button>
   </nav>
 
       <table class="card-body table mx-auto my-4">
         <th>
-          <p class="my-4">Results</p>
+          
         </th>
         <tbody id="anime-table" class="mx-auto text-center">
             <section id="character-section">
@@ -34,5 +45,6 @@
       </table>
     </section>
 <script src="./assets/js/quotes.js"></script>
+<script src="./assets/js/flickr.js"></script>
 </body>
 </html>
