@@ -20,7 +20,7 @@ function getAllCharApi() {
         // Creating elements, tablerow, tabledata, and anchor
         var createTableRow = document.createElement('tr');
         var tableData = document.createElement('td');
-        var character = document.createElement('span');
+        var character = document.createElement('h1');
 
         // Setting the text of link and the href of the link
         character.textContent = data[i];
