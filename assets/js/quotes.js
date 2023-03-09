@@ -34,6 +34,7 @@ function getAllCharApi() {
         var createTableRow = document.createElement('tr');
         var tableData = document.createElement('td');
         var character = document.createElement('h1');
+        
 
 
         //clear any other populated data
@@ -43,6 +44,7 @@ function getAllCharApi() {
         
         // Setting the text of link and the href of the link
         character.textContent = data[i];
+        character.classList = "character-class"; 
 
         // Appending the link to the tabledata and then appending the tabledata to the tablerow
         // The tablerow then gets appended to the tablebody
@@ -68,7 +70,7 @@ function getAllAnimeApi() {
         // Creating elements, tablerow, tabledata, and anchor
         var createTableRow = document.createElement('tr');
         var tableData = document.createElement('td');
-        var anime = document.createElement('span');
+        var anime = document.createElement('h1');
 
         //clear any other populated data
         charactersContainer.textContent = '';
@@ -77,6 +79,7 @@ function getAllAnimeApi() {
 
         // Setting the text of link and the href of the link
         anime.textContent = data[i];
+        anime.classList = "anime-class"; 
 
         // Appending the link to the tabledata and then appending the tabledata to the tablerow
         // The tablerow then gets appended to the tablebody
@@ -115,6 +118,9 @@ function getTenRandomApi() {
         anime.textContent = data[i].anime;
         character.textContent = data[i].character;
         quote.textContent = data[i].quote;
+        quote.classList = "quote-class"; 
+        anime.classList = "quote-class"; 
+        character.classList = "quote-class"; 
 
         // Appending the link to the tabledata and then appending the tabledata to the tablerow
         // The tablerow then gets appended to the tablebody
