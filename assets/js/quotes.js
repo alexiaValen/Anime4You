@@ -99,6 +99,6 @@ function getTenRandomApi() {
 }
 
 
-allCharBtn.addEventListener('click', getAllCharApi);
+//allCharBtn.addEventListener('click', getAllCharApi);
 allAnimeBtn.addEventListener('click', getAllAnimeApi);
 tenRandomBtn.addEventListener('click', getTenRandomApi);
