@@ -30,10 +30,11 @@ function getAllCharApi() {
       console.log(data)
       //Loop over the data to generate a table, each table row will have a link to the repo url
       for (var i = 0; i < data.length; i++) {
-        // Creating elements, tablerow, tabledata, and anchor
-        //var createTableRow = document.createElement('tr');
-        //var tableData = document.createElement('td');
-        var character = document.createElement('span');
+        // Creating elements, tablerow, tabledata, and anchor 
+        var createTableRow = document.createElement('tr');
+        var tableData = document.createElement('td');
+        var character = document.createElement('h1');
+
 
         //clear any other populated data
         animeShowsContainer.textContent = '';
