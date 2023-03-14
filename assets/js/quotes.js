@@ -183,8 +183,8 @@ function getTenRandomApi() {
         character.textContent = data[i].character;
         quote.textContent = data[i].quote;
         quote.classList = "quote-class"; 
-        anime.classList = "quote-class"; 
-        character.classList = "quote-class"; 
+        anime.classList = "animeq-class"; 
+        character.classList = "characterq-class"; 
 
         // Appending the link to the tabledata and then appending the tabledata to the tablerow
         // The tablerow then gets appended to the tablebody

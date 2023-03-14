@@ -1,0 +1,56 @@
+Introducing Anime4You
+A new way to watch anime that fits your needs.
+
+Elevator Pitch
+Hello, my name is Parth, I am a developer and administrator for the site Anime4you.
+More than a third of the world’s population or 2.88 billion people watch anime, and probably half that population spends more time searching for anime then watching it.
+Wouldn't you like to find a site that is interactive, fun and a easy to use? introducing Anime4You a new way to watch anime.
+We have spent hours developing the site and know the fundamentals of how to make the user experience more personalized. We have incorporated different divisions such as Anime Characters, where you can improve your knowledge of characters from animes. A section for Anime Shows, so you know what to watch. Anime Quotes, stay up to date on the latests quotes and generate 10 different quotes at a time. A section for popular shows just in case you need a little help finding that binge worthy show. There is also Anime Pictures where you can type a anime show and it generates a picture the coincides with the show. Lastly an About Us section to help relate to the administrators and understand the great people responsible for this masterpiece. 
+Try the site yourself you won’t regret it. 
+
+Concept
+Description: Anime4You is a anime site personalized for your watching pleasure, know the in and outs of anime character, shows and quotes, also other neat elements to help you stay on top with the latest knowledge. 
+Motivation: We at Anime4You, have a passion for anime and wanted to share that passion with others. We were tired of boring dull anime sites that were just too complicated to use, it was time for change.A group of our developers were eating lunch together one day and had a revelation, lets create a site to enhance the user experience and make anime interactive and fun. That is how we came up with the idea.
+User Story: Anime4You
+As a media consumer
+I want to use an ap to look for different anime tv shows and recommendations
+So that I can save the tv shows to watch later
+Followed by quotes for different anime characters.
+
+
+Process
+Technologies used Visual Studio Code, GitHub, and Internet.
+Breakdown of tasks and roles, Alexia created Html.index and Kelsi and Parth improved upon it. Parth created About Us page Alexia and Kelsi improved upon it. Kelsi worked on styling Css Alexia and Parth improved upon it. Alexia worked on apis for quotes and tv shows and Parth and Kelsi improved upon it. Alexia created local storage, Parth and Kelsi improved upon it. Alexia created javascript code Parth and Kelsi improved upon it. Parth created Readme and also created powerpoint Alexia and Kelsi helped present it.
+Challenges we encountered were merge conflicts through github. Styling issues through Css. Local storage setup and infrastructure. 
+Successes we encountered was a working, html, about us page. Javascript and css that worked in conjunction to the html and about us page.
+
+Demo
+Step 1: Home
+Step 2: Characters
+Step 3: Anime Shows
+Step 4: Anime Quotes
+Step 5: Pictures
+Step 6: Popular Shows
+Step 7:About Us               
+
+Directions for future development
+Want to implement favorite tv shows list.
+Implement forums page.
+Implement chat feature.
+Implement login user and password for guests.
+Implement watch anime on the site with dedicated video player feature.
+
+Links
+https://www.w3schools.com/html/html_css.asp
+
+https://www.w3schools.com/html/html_scripts.asp
+
+https://www.w3schools.com/css/css_dimension.asp
+
+https://www.w3schools.com/js/js_variables.asp
+
+https://www.w3schools.com/js/js_const.asp
+
+https://www.w3schools.com/js/js_arrays.asp
+
+
