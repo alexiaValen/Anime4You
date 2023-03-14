@@ -2,13 +2,66 @@ var tableBody = document.getElementById('anime-table');
 //containers
 var charactersContainer = document.getElementById('character-container');
 var animeShowsContainer = document.getElementById('anime-shows-container');
-var imagesContainer = document.getElementById('images-container');//might need to switch for flickr js code
+var imagesContainer = document.getElementById('images-container');
 var quotesContainer = document.getElementById('ten-quotes-container');
 //buttons from index.html
 var allCharBtn = document.getElementById('all-char-btn');
 var allAnimeBtn = document.getElementById('all-anime-btn');
 var tenRandomBtn = document.getElementById('ten-random-btn');
 var homeBtn = document.getElementById('home-btn');
+//containers for saved data
+var savedContainer = document.querySelector('.saved-container');
+var savedAnimeUl = document.querySelector('.saved-anime-ul');
+var animeTextArray = []; //For local storage
+
+
+//local storage
+function addToSavedList(event) {
+  var animeText = event.target.parentElement.innerText;//parentNode
+  console.log(animeText);
+  saveToLocalStorage(animeText); 
+}
+
+function saveToLocalStorage(animeText) {
+  // Only add an item to the local storage array if it isn't already there
+  if (!animeTextArray.includes(animeText)) { 
+  animeTextArray.push(animeText);
+  localStorage.setItem('Anime Item', JSON.stringify(animeTextArray));
+  }
+  loadLocalStorage();
+}
+
+// To prevent duplicate lists, removing the li's from the ul first
+function removeChilds(parent) {
+  while (parent.lastChild) {
+      parent.removeChild(parent.lastChild);
+  }
+}
+
+function loadLocalStorage() {
+  removeChilds(savedAnimeUl);
+
+  if (localStorage.getItem('Anime Item') === null) {
+    animeTextArray = [];
+  }
+  else {
+    animeTextArray = JSON.parse(localStorage.getItem('Anime Item'));
+}
+// For each book title, add it to the list on the screen
+animeTextArray.forEach((animeText) => appendSavedAnime(animeText));
+
+      // var storedHistory = localStorage.getItem('Anime Item');//original
+      // appendSavedAnime(storedHistory);//original
+}
+
+function appendSavedAnime(animeText) {
+  var savedAnimeItem = document.createElement('li');
+
+  savedAnimeItem.classList = 'saved-anime-item';
+  savedAnimeItem.textContent = animeText;
+
+  savedAnimeUl.appendChild(savedAnimeItem);
+}
 
 function homeScreen() {
   animeShowsContainer.textContent = '';
@@ -30,10 +83,12 @@ function getAllCharApi() {
       console.log(data)
       //Loop over the data to generate a table, each table row will have a link to the repo url
       for (var i = 0; i < data.length; i++) {
-        // Creating elements, tablerow, tabledata, and anchor 
-        var createTableRow = document.createElement('tr');
-        var tableData = document.createElement('td');
+        // Creating elements
         var character = document.createElement('h1');
+        //create button to save for local storage
+        var saveButton = document.createElement('button');
+        var iconSpan = document.createElement('span');
+        var icon = document.createElement('i');
         
 
 
@@ -44,16 +99,25 @@ function getAllCharApi() {
         
         // Setting the text of link and the href of the link
         character.textContent = data[i];
-        character.classList = "character-class"; 
+        character.classList = "character-class";
+        saveButton.textContent = 'Save';
+        saveButton.classList = 'save-button';
+        iconSpan.classList = 'icon is-small';
+        icon.classList = 'fas fa-check'; 
 
-        // Appending the link to the tabledata and then appending the tabledata to the tablerow
-        // The tablerow then gets appended to the tablebody
+        // Appending characters to container
         charactersContainer.appendChild(character);
-        //createTableRow.appendChild(tableData);
-        //tableBody.appendChild(createTableRow);
+        charactersContainer.appendChild(iconSpan);
+        iconSpan.appendChild(icon);
+        character.appendChild(saveButton);
+
+
+        //event listener for saved button
+        saveButton.addEventListener('click', addToSavedList);
       }
     });
 }
+
 
 function getAllAnimeApi() {
   // fetch request gets a list of all the repos for the node.js organization
