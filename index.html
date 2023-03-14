@@ -22,12 +22,27 @@
     background-color: black;
     font-weight: 500;
 }
-.character-class, .anime-class, .quote-class{ 
+.character-class, .anime-class, .quote-class, .saved-title{ 
     background-color: white; 
 color: black; 
 text-align: center;
 width: 300px; 
 
+}
+.populated-containers{
+    float: left;
+    padding: 50px;
+}
+.saved-list-containers{
+    float: right;
+    padding: 50px;
+}
+.character-class{
+    float: left;
+    font-weight: bold;
+}
+.save-button{
+    float: right;
 }
 
    </style>
@@ -46,11 +61,11 @@ width: 300px;
       <button class="button is-large" id = "about-us-btn"><a href="./aboutus.html">About Us</a></button>
   </nav>
 
-      <table class="card-body table mx-auto my-4">
-        <th>
-          
-        </th>
-        <tbody id="anime-table" class="mx-auto text-center">
+  <main class="columns main">
+        <div class="column is-three-fifths populated-containers">
+            <h1 class="populated-title">
+                <!-- title will display here according to which data populated -->
+            </h1>
             <section id="character-container">
                 <!-- characters populate here -->
             </section>
@@ -61,16 +76,24 @@ width: 300px;
                 <!-- ten quotes populate here -->
             </section>
             <!-- Images will populate here-->
-            <section id = "images-container"> 
-          
-             
+            <section id = "images-container">            
               
             </section>
             <section id="popular">
                 <!-- popular  populate here -->
             </section>
-        </tbody>
-      </table>
+        </div>
+        <div class="column is-three-fifths saved-list-containers">
+            <h1 class="title saved-title">
+                <!-- title will display here according to which data populated -->
+            </h1>
+        <section class="saved-container">
+            <ul class="saved-anime-ul">
+                <!-- list will populate here -->
+            </ul>
+        </section>
+        </div>
+    </main>
     </section>
     <footer>
         <p id="footer-p">Created by Anime4You Alexia,Parth,Kelsi. © 2023</p>
