@@ -4,6 +4,7 @@ var charactersContainer = document.getElementById('character-container');
 var animeShowsContainer = document.getElementById('anime-shows-container');
 var imagesContainer = document.getElementById('images-container');
 var quotesContainer = document.getElementById('ten-quotes-container');
+var mainContainer = document.querySelector('.main');
 //buttons from index.html
 var allCharBtn = document.getElementById('all-char-btn');
 var allAnimeBtn = document.getElementById('all-anime-btn');
@@ -13,6 +14,8 @@ var homeBtn = document.getElementById('home-btn');
 var savedContainer = document.querySelector('.saved-container');
 var savedAnimeUl = document.querySelector('.saved-anime-ul');
 var animeTextArray = []; //For local storage
+var populatedTitle = document.querySelector('.populated-title');
+var savedTitle = document.querySelector('.saved-title');
 
 
 //local storage
@@ -68,6 +71,8 @@ function homeScreen() {
   imagesContainer.textContent = '';
   quotesContainer.textContent = '';
   charactersContainer.textContent = '';
+  savedContainer.textContent = '';
+  mainContainer.body.style.backgroundColor = 'none';
 }
 
 
@@ -85,30 +90,22 @@ function getAllCharApi() {
       for (var i = 0; i < data.length; i++) {
         // Creating elements
         var character = document.createElement('h1');
-        //create button to save for local storage
-        var saveButton = document.createElement('button');
-        var iconSpan = document.createElement('span');
-        var icon = document.createElement('i');
-        
-
+        var saveButton = document.createElement('button');        
 
         //clear any other populated data
         animeShowsContainer.textContent = '';
         imagesContainer.textContent = '';
         quotesContainer.textContent = '';
         
-        // Setting the text of link and the href of the link
+        // Setting the text and assigning classes if needed
         character.textContent = data[i];
         character.classList = "character-class";
         saveButton.textContent = 'Save';
-        saveButton.classList = 'save-button';
-        iconSpan.classList = 'icon is-small';
-        icon.classList = 'fas fa-check'; 
+        saveButton.classList = 'save-button button is-white';
+        savedTitle.innerHTML = 'Saved Anime List';
 
         // Appending characters to container
         charactersContainer.appendChild(character);
-        charactersContainer.appendChild(iconSpan);
-        iconSpan.appendChild(icon);
         character.appendChild(saveButton);
 
 
@@ -131,9 +128,7 @@ function getAllAnimeApi() {
       console.log(data)
       //Loop over the data to generate a table, each table row will have a link to the repo url
       for (var i = 0; i < data.length; i++) {
-        // Creating elements, tablerow, tabledata, and anchor
-        var createTableRow = document.createElement('tr');
-        var tableData = document.createElement('td');
+        // Creating elements
         var anime = document.createElement('h1');
 
         //clear any other populated data
@@ -148,8 +143,6 @@ function getAllAnimeApi() {
         // Appending the link to the tabledata and then appending the tabledata to the tablerow
         // The tablerow then gets appended to the tablebody
         animeShowsContainer.appendChild(anime);
-        // createTableRow.appendChild(tableData);
-        // tableBody.appendChild(createTableRow);
       }
     });
 }
