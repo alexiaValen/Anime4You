@@ -1,4 +1,3 @@
-var tableBody = document.getElementById('anime-table');
 //containers
 var charactersContainer = document.getElementById('character-container');
 var animeShowsContainer = document.getElementById('anime-shows-container');
@@ -14,9 +13,27 @@ var homeBtn = document.getElementById('home-btn');
 var savedContainer = document.querySelector('.saved-container');
 var savedAnimeUl = document.querySelector('.saved-anime-ul');
 var animeTextArray = []; //For local storage
-var populatedTitle = document.querySelector('.populated-title');
-var savedTitle = document.querySelector('.saved-title');
 
+
+function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+function filterFunction() {
+  var input, filter, ul, li, a, i;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  div = document.getElementById("myDropdown");
+  a = div.getElementsByTagName("a");
+  for (i = 0; i < a.length; i++) {
+    txtValue = a[i].textContent || a[i].innerText;
+    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+      a[i].style.display = "";
+    } else {
+      a[i].style.display = "none";
+    }
+  }
+}
 
 //local storage
 function addToSavedList(event) {
@@ -71,8 +88,7 @@ function homeScreen() {
   imagesContainer.textContent = '';
   quotesContainer.textContent = '';
   charactersContainer.textContent = '';
-  savedContainer.textContent = '';
-  mainContainer.body.style.backgroundColor = 'none';
+  popularContainer.textContent = ''
 }
 
 
@@ -96,13 +112,14 @@ function getAllCharApi() {
         animeShowsContainer.textContent = '';
         imagesContainer.textContent = '';
         quotesContainer.textContent = '';
+        popularContainer.textContent = '';
+        imagesContainer.style.backgroundColor = 'none';
         
         // Setting the text and assigning classes if needed
         character.textContent = data[i];
         character.classList = "character-class";
         saveButton.textContent = 'Save';
-        saveButton.classList = 'save-button button is-white';
-        savedTitle.innerHTML = 'Saved Anime List';
+        saveButton.classList = 'save-button button is-white char-save-btn';
 
         // Appending characters to container
         charactersContainer.appendChild(character);
@@ -130,19 +147,26 @@ function getAllAnimeApi() {
       for (var i = 0; i < data.length; i++) {
         // Creating elements
         var anime = document.createElement('h1');
+        var saveButton = document.createElement('button');
 
         //clear any other populated data
         charactersContainer.textContent = '';
         imagesContainer.textContent = '';
         quotesContainer.textContent = '';
+        popularContainer.textContent = '';
 
         // Setting the text of link and the href of the link
         anime.textContent = data[i];
-        anime.classList = "anime-class"; 
+        anime.classList = "anime-class";
+        saveButton.textContent = 'Save';
+        saveButton.classList = 'save-button button is-white'; 
 
-        // Appending the link to the tabledata and then appending the tabledata to the tablerow
-        // The tablerow then gets appended to the tablebody
+        // Appending
         animeShowsContainer.appendChild(anime);
+        anime.appendChild(saveButton);
+
+        //event listener for saved button
+        saveButton.addEventListener('click', addToSavedList);
       }
     });
 }
@@ -159,33 +183,30 @@ function getTenRandomApi() {
       console.log(data)
       //Loop over the data to generate a table, each table row will have a link to the repo url
       for (var i = 0; i < data.length; i++) {
-        // Creating elements, tablerow, tabledata, and anchor
-        var createTableRow = document.createElement('tr');
-        var tableData = document.createElement('td');
+        // Creating elements
         var anime = document.createElement('h1');
         var character = document.createElement('h2');
         var quote = document.createElement('p');
+        var saveButton = document.createElement('button');
 
         //clear any other populated data
         animeShowsContainer.textContent = '';
         imagesContainer.textContent = '';
         charactersContainer.textContent = '';
+        popularContainer.textContent = '';
 
         // Setting the text 
         anime.textContent = data[i].anime;
         character.textContent = data[i].character;
         quote.textContent = data[i].quote;
         quote.classList = "quote-class"; 
-        anime.classList = "animeq-class"; 
-        character.classList = "characterq-class"; 
+        anime.classList = "animeq-class title is-two"; 
+        character.classList = "characterq-class subtitle";
 
-        // Appending the link to the tabledata and then appending the tabledata to the tablerow
-        // The tablerow then gets appended to the tablebody
+        // Appending
         quotesContainer.appendChild(anime);
         quotesContainer.appendChild(character);
         quotesContainer.appendChild(quote);
-        // createTableRow.appendChild(tableData);
-        // tableBody.appendChild(createTableRow);
       }
     });
 }
