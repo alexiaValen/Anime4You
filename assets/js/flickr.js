@@ -1,6 +1,7 @@
 //grabbing buttons/containers from html
 var flickerButton = document.getElementById("flicker-btn"); 
-var imageContainer = document.getElementById("images-container"); 
+var imageContainer = document.getElementById("images-container");
+var imgTitle = document.querySelector('.img-title'); 
 
 function searchAnimeImage() {
     var apiUrl = `https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=1aa83de35e6048dbca83ae167d34356a&tags=anime&format=json&nojsoncallback=1’`;
@@ -32,8 +33,10 @@ function displayImage(data) {
 
     imageEl.src = "https://live.staticflickr.com/" + server + "/" + photoId + "_" + secret + ".jpg"; 
 
-    imageEl.classList = "flickerImage"; 
-    imageContainer.appendChild(imageEl); 
+    imageEl.classList = "flickerImage";
+    imageContainer.style.backgroundColor = 'white'; 
+    imageContainer.appendChild(imageEl);
+    imgTitle.innerHTML = 'More Coming Soon!'; 
 }
 
 

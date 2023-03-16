@@ -11,25 +11,51 @@
 </head>
 <body>
 
-  <style>
-.center {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 50%;
-  margin-top: 90px;
-}
-   </style>
+<style>
+  .center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    margin-top: 90px;
+  }
+  /* The container <div> - needed to position the dropdown content */
+  .dropdown {
+    position: relative;
+    display: inline-block;
+    }
+    /* Dropdown Content (Hidden by Default) */
+    .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f6f6f6;
+    min-width: 230px;
+    border: 1px solid #ddd;
+    z-index: 1;
+    }
+  /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+  .show {
+    display:block;
+  }
+</style>
 
-  <img class="center" src="./Images/Developers.png">
+  <img class="center" src="./Images/Developers.png" alt="Anime Characters of a two females and a male">
 
-
-
-  <nav class = "nav-bar navbar-end navbar is-fixed-top" style="text-align: center;">  
+  <nav class = "nav-bar navbar-end navbar is-fixed-top" style="text-align: center;">
+    <div class="dropdown">
+      <button onclick="myFunction()" class="dropbtn button is-large">Saved List</button>
+      <div id="myDropdown" class="dropdown-content saved-container">
+      <ul class="saved-anime-ul">
+          <!-- saved items will populate here -->
+      </ul>
+      </div>
+    </div>  
       <button class="button is-large" id = "home-btn"><a href="./index.html">Home</a></button> 
       <button class="button is-large" id = "all-char-btn">Anime Character</button>
       <button class="button is-large" id = "all-anime-btn">Anime Shows</button>
       <button class="button is-large" id ="ten-random-btn">Anime Quotes</button>
+      <button class="button is-large" id = "flicker-btn">Pictures</button>
+      <button class="button is-large" id = "popular-btn">Popular Shows</button>
       <button class="button is-large" id = "about-us-btn">About Us</button>
   </nav>
 
@@ -90,5 +116,8 @@
       </div>
     </div>
   </section>
+  <script src="./assets/js/quotes.js"></script>
+<script src="./assets/js/flickr.js"></script>
+<script src="./assets/js/enime.js"></script>
 </body>
 </html>

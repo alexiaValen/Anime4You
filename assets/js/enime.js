@@ -28,10 +28,13 @@ function getPopular() {
             quotesContainer.textContent = '';
             charactersContainer.textContent = '';
   
-          // Setting the text of link and the href of the link
+          // Setting the text of data and adding classes to variables
           title.textContent = data.data[i].title.english;
+          title.classList = 'enime-title title is-one';
           img.src = data.data[i].coverImage;
-          description.textContent = data.data[i].description;
+          img.classList = 'enime-img';
+          description.innerHTML = data.data[i].description;
+          description.classList = 'enime-description';
           // Appending the link 
           popularContainer.appendChild(title);
           popularContainer.appendChild(img);
